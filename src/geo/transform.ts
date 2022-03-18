@@ -724,7 +724,7 @@ class Transform {
 
         // The mercatorMatrix can be used to transform points from mercator coordinates
         // ([0, 0] nw, [1, 1] se) to GL coordinates.
-        this.mercatorMatrix = mat4.scale([] as any, m, vec3.fromValues(this.worldSize, this.worldSize, this.worldSize));
+        this.mercatorMatrix = mat4.scale([] as any, m, [this.worldSize, this.worldSize, this.worldSize]);
 
         // scale vertically to meters per pixel (inverse of ground resolution):
         mat4.scale(m, m, vec3.fromValues(1, 1, mercatorZfromAltitude(1, this.center.lat) * this.worldSize));
